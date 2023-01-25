@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <title>barre de progression en JavaScript</title>
+  <style>
+    #Progress_Status {
+      width: 70%;
+      background-color: #ddd;
+    }
+
+    #myprogressBar {
+      width: 0%;
+      height: 40px;
+      background-color: #4CAF50;
+    }
+
+    button{
+      padding-left: 20px;
+      padding-right: 20px;
+      height: 30px;
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <p>Statut de téléchargement du fichier:</p>
+
+  <div id="Progress_Status">
+    <div id="myprogressBar"></div>
+  </div>
+
+  <br>
+  <p>clique <button onclick="update()">ici</button> pour commencer le téléchargement</p>
+
+  <script>
+    function update() {
+      var element = document.getElementById("myprogressBar");
+      var width = 1;
+      var identity = setInterval(scene, 10);
+
+      function scene() {
+        if (width >= 100) {
+          clearInterval(identity);
+        } else {
+          width++;
+          element.style.width = width + '%';
+        }
+      }
+    }
+  </script>
+
+</body>
+
+</html>
